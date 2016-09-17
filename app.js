@@ -19,7 +19,6 @@ Vue.component('modal', {
 new Vue({
   el: '#app',
   data: {
-    showNav: true,
     showModal: false,
     modalPainting: {},
     paintings: [
