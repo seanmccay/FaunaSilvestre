@@ -12,11 +12,6 @@ Vue.component('modal', {
       required: true,
       twoWay: false
     }
-  },
-  events:{
-    showModal: function(painting){
-      this.$dispatch('showModal', painting)
-    }
   }
 })
 
@@ -24,7 +19,9 @@ Vue.component('modal', {
 new Vue({
   el: '#app',
   data: {
+    showNav: true,
     showModal: false,
+    modalPainting: {},
     paintings: [
       {
         path: 'img/red_drum.jpg',
@@ -78,9 +75,9 @@ new Vue({
   },
 
   events: {
-    showModal: function (painting) {
-      this.$broadcast('showModal', painting)
-    }
+    // showModal: function (painting) {
+    //   this.$broadcast('showModal', painting)
+    // }
   }
 })
 

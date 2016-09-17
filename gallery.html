@@ -10,91 +10,91 @@
   <title>Fauna Silvestre Studio</title>
 </head>
 <body>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-              data-target="#bs-example-navbar-collapse-1"
-              aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="#">Fauna Silvestre Studio</a>
-    </div>
-  </div>
-</nav>
-
 <template id="modal-template">
   <div class="modal-mask" v-show="show" transition="modal">
     <div class="modal-wrapper">
       <div class="modal-container">
-
+        <button class="btn btn-default modal-close" @click="show = false">
+          <span class="glyphicon glyphicon-remove"></span>
+          <span class="sr-only">Close</span>
+        </button>
         <div class="modal-header">
           <slot name="header">
             Name of Painting
           </slot>
-          <button class="btn btn-default modal-close" @click="show = false">
-            <span class="glyphicon glyphicon-remove"></span>
-            <span class="sr-only">Close</span>
-          </button>
         </div>
-
         <div class="modal-image">
           <slot name="image">
             <span class="glyphicon glyphicon-picture">Painting Here!</span>
           </slot>
         </div>
-
         <div class="modal-description">
           <slot name="description">
             Need to add a description
           </slot>
         </div>
-
         <div class="modal-footer">
-          <slot name="footer">
-            <div class="alert alert-info" role="alert"
-                 v-if="painting.etsy == 'SOLD'">
-              This painting has already been purchased on Etsy
-            </div>
-            <a :href="painting.etsy" class="btn btn-primary modal-etsy-button"
-               style="float:right;" v-if="painting.etsy != 'SOLD'">
-              Buy on Etsy
-            </a>
-          </slot>
+          <div class="alert alert-info" role="alert"
+               v-if="painting.etsy == 'SOLD'" style="text-align: center;">
+            <span class="glyphicon glyphicon-exclamation-sign modal-etsy-alert"></span>
+            This painting has already been purchased.
+          </div>
+          <a :href="painting.etsy" class="btn btn-primary modal-etsy-button"
+             style="float:right;" v-if="painting.etsy != 'SOLD'">
+            Buy on Etsy
+          </a>
         </div>
       </div>
     </div>
   </div>
 </template>
 
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Fauna Silvestre Studio</a>
+    </div>
+    <div class="collapse navbar-collapse" id="navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a href="#">Gallery <span class="sr-only">(current)</span></a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<!-- app / This is where I create all of the thumbnails that act as buttons -->
 <div id="app">
   <div class="container">
     <div class="page-header">
       <h1>Texas State Symbols Series</h1>
     </div>
 
-
     <div v-for="painting in paintings">
-      <div class="col-md-6">
+      <div class="col-lg-6">
         <img class="img-thumbnail" :alt="painting.header" :src="painting.path"
-             @click="showModal = true"/>
+             @click="showModal = true, modalPainting = painting"/>
       </div>
     </div>
 
-    <modal :show.sync="showModal" :painting.sync="painting">
-      <h3 slot="header">{{painting.header}}</h3>
-      <img slot="image" :src="{{painting.path}}" :alt="{{painting.header}}"/>
-      <p slot="description">{{painting.description}}</p>
+    <modal :show.sync="showModal" :painting.sync="modalPainting">
+      <h3 slot="header">{{modalPainting.header}}</h3>
+      <img slot="image" class="modal-image" :src="modalPainting.path" :alt="modalPainting.header"/>
+      <p slot="description">{{modalPainting.description}}</p>
     </modal>
 
   </div>
 </div>
+
 <script src="node_modules/vue/dist/vue.js"></script>
+<script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 <script src="app.js"></script>
 </body>
 </html>
