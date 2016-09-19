@@ -44,7 +44,7 @@ new Vue({
         path: 'img/mocking_bird.jpg',
         header: "Mocking Bird",
         description: "Acrylic painting of a Mocking Bird.",
-        etsy: "https://www.etsy.com/listing/460106326/texas-state-symbol-series-northern?ref=shop_home_active_4"
+        etsy: "SOLD"
       },
       {
         path: 'img/nine_banded_armadillo.jpg',
@@ -72,11 +72,8 @@ new Vue({
       }
     ]
   },
+  methods: {
 
-  events: {
-    // showModal: function (painting) {
-    //   this.$broadcast('showModal', painting)
-    // }
   }
 })
 

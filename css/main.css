@@ -26,13 +26,14 @@
     border-radius: 5px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, .33);
     transition: all .3s ease;
-    font-family: Helvetica, Arial, sans-serif;
+    font-family: 'Arvo', serif;
 }
 
 .modal-header h3 {
     margin-top: 0;
-    color: #42b983;
+    color: #265a88;
     float: left;
+    font-weight: 800;
 }
 
 .modal-image {
@@ -77,9 +78,58 @@
     transform: scale(1.1);
 }
 
+/*GENERAL STUFF*/
+
+body{
+    background-color: #fbfbfb;
+}
+.page-header {
+    color: #265a88;
+    font-family: 'Arvo', serif;
+    font-weight: 700;
+}
+
+.navbar-default .navbar-brand {
+    color: #265a88;
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+}
+
 
 /*THUMBNAILS FOR GALLERY*/
+
 .img-thumbnail {
     margin-bottom: 30px;
 }
 
+
+/* ABOUT */
+#shelby {
+    height: 350px;
+    width: 350px;
+    border-radius: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+p .center {
+    text-align: center;
+    margin: 5%;
+}
+
+
+/* CONTACT */
+#etsy-header {
+    color: #ff6905;
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 4em;
+}
+
+#email-header {
+    font-family: 'Arvo', serif;
+    font-weight: 400;
+    text-align: center;
+    font-size: 4em;
+}

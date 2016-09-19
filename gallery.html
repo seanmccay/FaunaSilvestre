@@ -5,6 +5,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Arvo:400,700" rel="stylesheet">
   <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="css/main.css">
   <title>Fauna Silvestre Studio</title>
@@ -37,7 +38,7 @@
           <div class="alert alert-info" role="alert"
                v-if="painting.etsy == 'SOLD'" style="text-align: center;">
             <span class="glyphicon glyphicon-exclamation-sign modal-etsy-alert"></span>
-            This painting has already been purchased.
+            This painting has already been purchased or is otherwise not for sale.
           </div>
           <a :href="painting.etsy" class="btn btn-primary modal-etsy-button"
              style="float:right;" v-if="painting.etsy != 'SOLD'">
@@ -49,7 +50,7 @@
   </div>
 </template>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
@@ -73,7 +74,7 @@
 </nav>
 
 <div id="app">
-  <div class="container">
+  <div class="container-fluid">
     <div class="page-header">
       <h1>Texas State Symbols Series</h1>
     </div>
